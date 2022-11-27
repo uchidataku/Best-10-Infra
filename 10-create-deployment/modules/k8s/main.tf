@@ -153,7 +153,6 @@ resource "kubernetes_config_map" "app_config" {
     "DATABASE_USERNAME"      = var.database_username
     "APP_HOST"               = "${var.subdomain_name}.${var.domain_name}"
     "GCP_PROJECT_NAME"       = var.project_name
-    "GCS_BUCKET_NAME"        = var.gcs_bucket_name
     "DEFAULT_ADMIN_USERNAME" = var.default_admin_username
     "RAILS_LOG_TO_STDOUT"    = "true"
   }
@@ -173,7 +172,6 @@ resource "kubernetes_secret" "app_secret" {
     "RAILS_MASTER_KEY"       = var.rails_master_key
     "SENTRY_DSN"             = var.sentry_dsn
     "DEFAULT_ADMIN_PASSWORD" = var.default_admin_password
-    "GCS_SA_CREDENTIALS"     = var.gcs_sa_credentials
   }
 }
 
