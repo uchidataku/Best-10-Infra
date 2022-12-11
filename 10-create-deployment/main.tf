@@ -63,6 +63,7 @@ module "cloudflare" {
 
   zone_id        = var.cloudflare_zone_id
 #  subdomain_name = var.subdomain_name
+  domain_name = var.domain_name
   global_ip      = tostring(module.networking.global_ip.address)
 }
 
