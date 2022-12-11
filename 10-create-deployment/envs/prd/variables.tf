@@ -11,10 +11,7 @@ variable "region" {
 variable "domain_name" {
   default     = ""
 }
-
-#variable "subdomain_name" {
-#  default = "best-10"
-#}
+variable "app_host" {}
 
 # Cloud SQL
 variable "cloud_sql_machine_type" {}
