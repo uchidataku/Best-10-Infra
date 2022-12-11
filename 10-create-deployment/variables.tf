@@ -10,8 +10,8 @@ variable "region" {
 }
 variable "rails_env" {}
 
+variable "app_host" {}
 variable "domain_name" {}
-#variable "subdomain_name" {}
 
 # Cloud SQL
 variable "cloud_sql_machine_type" {}

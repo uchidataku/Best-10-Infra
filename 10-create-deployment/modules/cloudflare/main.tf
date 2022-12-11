@@ -8,8 +8,7 @@ terraform {
 }
 
 resource "cloudflare_record" "api" {
-#  name    = var.subdomain_name
-  name    = var.domain_name
+  name    = var.hostname
   value   = var.global_ip
   type    = "A"
   zone_id = var.zone_id

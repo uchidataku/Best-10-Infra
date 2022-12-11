@@ -1,4 +1,3 @@
-#variable "subdomain_name" {}
-variable "domain_name" {}
+variable "hostname" {}
 variable "global_ip" {}
 variable "zone_id" {}

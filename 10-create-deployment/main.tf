@@ -62,8 +62,7 @@ module "cloudflare" {
   source = "./modules/cloudflare"
 
   zone_id        = var.cloudflare_zone_id
-#  subdomain_name = var.subdomain_name
-  domain_name = var.domain_name
+  hostname       = var.app_host
   global_ip      = tostring(module.networking.global_ip.address)
 }
 
