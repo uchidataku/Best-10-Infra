@@ -9,9 +9,6 @@ resource "google_container_cluster" "primary" {
   initial_node_count       = var.initial_node_count
 
   master_auth {
-    username = ""
-    password = ""
-
     client_certificate_config {
       issue_client_certificate = false
     }
