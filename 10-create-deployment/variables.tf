@@ -1,5 +1,5 @@
 variable "project_name" {
-  default = "best-10"
+  default = "best-10-369906"
 }
 variable "environment" {}
 
