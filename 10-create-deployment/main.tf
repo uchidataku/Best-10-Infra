@@ -31,15 +31,15 @@ provider "google" {
 }
 
 data "google_client_config" "current" {}
-data "google_container_cluster" "gke" {
+data "google_container_cluster" "primary" {
   name = "${var.project_name}-cluster"
 }
 
 provider "kubernetes" {
   load_config_file = false
 
-  host                   = data.google_container_cluster.gke.endpoint
-  cluster_ca_certificate = base64decode(data.google_container_cluster.gke.master_auth[0].cluster_ca_certificate)
+  host                   = data.google_container_cluster.primary.endpoint
+  cluster_ca_certificate = base64decode(data.google_container_cluster.primary.master_auth[0].cluster_ca_certificate)
   token                  = data.google_client_config.current.access_token
 }
 
