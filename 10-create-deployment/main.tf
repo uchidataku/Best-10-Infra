@@ -39,7 +39,7 @@ provider "kubernetes" {
   load_config_file = false
 
   host                   = data.google_container_cluster.gke.endpoint
-  cluster_ca_certificate = base64decode(data.google_container_cluster.gke.master_auth.0.cluster_ca_certificate)
+  cluster_ca_certificate = base64decode(data.google_container_cluster.gke.master_auth[0].cluster_ca_certificate)
   token                  = data.google_client_config.current.access_token
 }
 
@@ -63,7 +63,7 @@ module "cloudflare" {
 
   zone_id        = var.cloudflare_zone_id
 #  subdomain_name = var.subdomain_name
-  domain_name = var.domain_name
+  domain_name = var.subdomain_name
   global_ip      = tostring(module.networking.global_ip.address)
 }
 
