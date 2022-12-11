@@ -4,7 +4,7 @@ variable "rails_env" {}
 variable "app_image_url" {}
 variable "global_ip" {}
 variable "domain_name" {}
-variable "subdomain_name" {}
+#variable "subdomain_name" {}
 
 # Database
 variable "database_host" {}

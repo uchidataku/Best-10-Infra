@@ -151,7 +151,8 @@ resource "kubernetes_config_map" "app_config" {
     "DATABASE_HOST"          = var.database_host
     "DATABASE_NAME"          = var.database_name
     "DATABASE_USERNAME"      = var.database_username
-    "APP_HOST"               = "${var.subdomain_name}.${var.domain_name}"
+#    "APP_HOST"               = "${var.subdomain_name}.${var.domain_name}"
+    "APP_HOST"               = var.domain_name
     "GCP_PROJECT_NAME"       = var.project_name
     "DEFAULT_ADMIN_USERNAME" = var.default_admin_username
     "RAILS_LOG_TO_STDOUT"    = "true"

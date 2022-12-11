@@ -21,7 +21,7 @@ module "prd" {
   cloudflare_zone_id = var.cloudflare_zone_id
 
   domain_name    = var.domain_name
-  subdomain_name = var.subdomain_name
+#  subdomain_name = var.subdomain_name
 
   # Cloud SQL
   cloud_sql_machine_type = var.cloud_sql_machine_type
