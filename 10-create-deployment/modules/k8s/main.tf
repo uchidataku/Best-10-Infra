@@ -26,7 +26,7 @@ resource "kubernetes_namespace" "namespace" {
 resource "kubernetes_ingress" "ingress" {
   metadata {
     namespace = kubernetes_namespace.namespace.metadata.0.name
-    name      = "${var.project_name}-${var.environment}-ingress"
+    name      = "best-10-${var.environment}-ingress"
 #    annotations = {
 #      "kubernetes.io/ingress.global-static-ip-name" = var.global_ip.name
 #      "kubernetes.io/ingress.allow-http"            = false
