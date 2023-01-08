@@ -5,7 +5,7 @@ terraform {
     }
 
     kubernetes = {
-      version = "1.23.1"
+      version = "2.16.1"
     }
   }
 }
@@ -23,14 +23,14 @@ resource "kubernetes_namespace" "namespace" {
 /*
   Ingresses
 */
-resource "kubernetes_ingress" "ingress" {
+resource "kubernetes_ingress_v1" "ingress" {
   metadata {
     namespace = kubernetes_namespace.namespace.metadata.0.name
     name      = "best-10-${var.environment}-ingress"
-#    annotations = {
-#      "kubernetes.io/ingress.global-static-ip-name" = var.global_ip.name
-#      "kubernetes.io/ingress.allow-http"            = false
-#    }
+    #    annotations = {
+    #      "kubernetes.io/ingress.global-static-ip-name" = var.global_ip.name
+    #      "kubernetes.io/ingress.allow-http"            = false
+    #    }
   }
 
   spec {
@@ -38,9 +38,13 @@ resource "kubernetes_ingress" "ingress" {
       secret_name = "${var.project_name}-${var.environment}-tls-secret"
     }
 
-    backend {
-      service_name = kubernetes_service.service.metadata.0.name
-      service_port = 3000
+    default_backend {
+      service {
+        name = kubernetes_service.service.metadata.0.name
+        port {
+          number = 3000
+        }
+      }
     }
   }
 }
