@@ -5,7 +5,7 @@ terraform {
     }
 
     kubernetes = {
-      version = "1.22"
+      version = "1.22.0"
     }
   }
 }
