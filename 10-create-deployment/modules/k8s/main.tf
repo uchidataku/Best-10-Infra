@@ -27,10 +27,10 @@ resource "kubernetes_ingress_v1" "ingress" {
   metadata {
     namespace = kubernetes_namespace.namespace.metadata.0.name
     name      = "best-10-${var.environment}-ingress"
-    #    annotations = {
-    #      "kubernetes.io/ingress.global-static-ip-name" = var.global_ip.name
-    #      "kubernetes.io/ingress.allow-http"            = false
-    #    }
+    annotations = {
+      "kubernetes.io/ingress.global-static-ip-name" = var.global_ip.name
+      "kubernetes.io/ingress.allow-http"            = false
+    }
   }
 
   spec {
