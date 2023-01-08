@@ -38,7 +38,7 @@ resource "kubernetes_ingress" "ingress" {
       secret_name = "${var.project_name}-${var.environment}-tls-secret"
     }
 
-    backend {
+    default_backend {
       service_name = kubernetes_service.service.metadata.0.name
       service_port = 3000
     }
