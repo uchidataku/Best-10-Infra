@@ -1,5 +1,5 @@
 terraform {
-  required_version = "~> 1.3.5"
+  required_version = "~> 1.16.0"
 
   backend "remote" {
     organization = "uchidataku"

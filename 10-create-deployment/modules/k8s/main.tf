@@ -23,7 +23,7 @@ resource "kubernetes_namespace" "namespace" {
 /*
   Ingresses
 */
-resource "kubernetes_ingress_v1" "ingress" {
+resource "kubernetes_ingress" "ingress" {
   metadata {
     namespace = kubernetes_namespace.namespace.metadata.0.name
     name      = "best-10-${var.environment}-ingress"
@@ -38,13 +38,9 @@ resource "kubernetes_ingress_v1" "ingress" {
       secret_name = "${var.project_name}-${var.environment}-tls-secret"
     }
 
-    default_backend {
-      service {
-        name = kubernetes_service.service.metadata.0.name
-        port {
-          number = 3000
-        }
-      }
+    backend {
+      service_name = kubernetes_service.service.metadata.0.name
+      service_port = 3000
     }
   }
 }
